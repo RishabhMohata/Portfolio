@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.svg'}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/600b6f788f.js" crossorigin="anonymous"></script>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <script src="{% static '/js/web.js' %}" defer></script>
+    {% block title %}
+    <title>Home Page</title>
+    {% endblock %}
+</head>
+
+
+<body>
+    <!-- 
+        xs <576 | 576< sm <768 | 768< md <992 | 992< lg < 1200 | 1200< xl
+     -->
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md sticky-top navbar-light">
+        <a href="" class="navbar-brand">
+            <img src="{% static 'images/rishabh.svg' %}" style="width:200px; height:40px;" alt="Logo">
+        </a>
+
+        <!-- Hamburger -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    {% block head %}
+                    <a href="" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resume" class="nav-link">Resume</a>
+                </li>
+                {% endblock %}
+            </ul>
+        </div>
+    </nav>
+
+
+    {% block content %}
+
+
+    <div class="container mt-5 mb-5" id="main">
+
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="container p-5">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <img src="{% static '/images/rishabh.jpg' %}"
+                            style="height:200px;width:200px;border-radius:100px;" alt="Phanee">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br>
+                            <h2 style="color:tomato">Rishabh Mohata</h2><br>
+                            Currently a junior at Chandigarh University with Computer Science and specialization in Information Security branch. I
+                            aim to leverage my technical and teamwork skills . Frequently praised as diligent by my peers.<br><br>
+                            Computer Science Undergraduate student at <a href="https://www.cuchd.in" style="color:tomato">Chandigarh University</a>, Chandigarh.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Skills -->
+        <section class="skills" id="skills">
+            <div class="container p-5 text-center">
+                <h1 style="color:tomato">Skills</h1><br>
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <p><i class="fab fa-python"></i>&nbsp;&nbsp;Python(Intermediate)</p>
+                        <p><i class="fas fa-cogs"></i>&nbsp;&nbsp;Machine Learning(Intermediate)</p>
+                        <p><i class="fas fa-code"></i>&nbsp;&nbsp;C++ (Intermediate)</p>
+                        <p><i class="fab fa-cuttlefish"></i>&nbsp;&nbsp;C (Basic)</p>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <p><i class="fas fa-brain"></i>&nbsp;&nbsp;Problem Solving(Intermediate)</p>
+                        <p><i class="fas fa-book"></i>&nbsp;&nbsp;DSA(Intermediate)</p>
+                        <p><i class="fas fa-language"></i>&nbsp;&nbsp;Natural Language Processing (NLP)</p>
+                        <p><i class="fas fa-eye"></i>&nbsp;&nbsp;Computer Vision</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Projects -->
+        <section class="projects" id="projects">
+            <div class="container-fluid-md pt-5 pb-5 text-center">
+                <h1 style="color:tomato">Projects</h1>
+                <div class="row p-3">
+                    <div class="col-md-6 p-5 text-center">
+                        <a href="{% url 'project_diabetes' %}">
+                            <div class="card-flyer">
+                                <div class="text-box">
+                                    <div class="image-box">
+                                        <img src="{% static 'images/diabetes_logo.svg' %}" style="height: 250px;"
+                                            class="d-block w-100" alt="PhaneeLogo1">
+                                    </div>
+                                    <div class="text-container">
+                                        <h6>Diabetes Prediction</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 p-5 text-center">
+                        <a href="{% url 'project_taxi' %}">
+                            <div class="card-flyer">
+                                <div class="text-box">
+                                    <div class="image-box">
+                                        <img src="{% static 'images/taxi.png' %}" style="height: 250px;"
+                                            class="d-block w-100" alt="PhaneeLogo1">
+                                    </div>
+                                    <div class="text-container">
+                                        <h6>Taxi-Fare</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-md-6 p-5 text-center">
+                        <a href="{% url 'project_heart' %}">
+                            <div class="card-flyer">
+                                <div class="text-box">
+                                    <div class="image-box">
+                                        <img src="{% static 'images/heart_logo.svg' %}" style="height: 250px;"
+                                            class="d-block w-100" alt="PhaneeLogo1">
+                                    </div>
+                                    <div class="text-container">
+                                        <h6>Heart Disease Prediction</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 p-5 text-center">
+                        <a href="{% url 'project_titanic' %}">
+                            <div class="card-flyer">
+                                <div class="text-box">
+                                    <div class="image-box">
+                                        <img src="{% static 'images/titanic_logo.svg' %}" style="height: 250px;"
+                                            class="d-block w-100" alt="PhaneeLogo1">
+                                    </div>
+                                    <div class="text-container">
+                                        <h6>Titanic Survival Prediction</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Resume -->
+        <section class="resume" id="resume">
+            <div class="container-fluid pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 style="color:tomato">Resume</h1>
+                        <embed src="{% static 'files/rishabh' %}.pdf" width="100%" height="600px" /><br><br>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="footer p-5-md p-4">
+        <div class="container-fluid">
+            <div class="row m-2">
+
+                {% block footer %}
+                <div class="col-sm-6 text-center p-3">
+                    <a class="p-2" href="#projects"> Projects</a>
+                    <a class="p-2" href="#about"> About</a>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <a href="tel:6376273161" class="p-2"
+                        onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Call', eventLabel: 'Mobile Button'});">
+                        <img src="{% static '/images/phone1.svg' %}" style="height:35px">
+                    </a>
+                    <a href="mailto:mohata.rishabh1@gmail.com" class="p-2"><img
+                            src="{% static '/images/email.svg' %}" style="height:35px"></a>
+                    <a href="https://www.linkedin.com/in/rishabh-mohata-ba2b29190?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bc15Q%2Bz3wTrGOqDu%2FJI6P1A%3D%3D" target="_blank" class="p-2"><img
+                            src="{% static '/images/linkedin.svg' %}"  style="height:30px"></a>
+                    <a href="https://twitter.com/RishabhMohata6" class="p-2"><img
+                            src="{% static '/images/twitter.svg' %}" style="height:35px"></a>
+                </div>
+                {% endblock %}
+
+            </div>
+            <div class="row rishabh">
+                <div class="col-md-12 text-center p-3 pb-2">
+                    <hr>&copy;&nbsp;Rishabh All rights reserved.
+                    <img src="{% static '/images/love.svg' %}" style="height:20px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scroll up button -->
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

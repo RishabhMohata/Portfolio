@@ -1,0 +1,166 @@
+body{
+    font-family: monospace;
+    color:#202124;
+    font-size: 18px;
+    background:ghostwhite;
+}
+
+nav{
+    background-color: #fff;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+nav .navbar-nav li a {
+    color: #202124 !important;
+    font-size: 18px;
+    font-family: monospace;
+}
+
+
+nav .navbar-nav li a:hover{
+    color: rgb(16, 236, 225) !important;
+}
+
+#main{
+    box-shadow: 1px 1px 6px #999;
+    background-color: white;
+}
+
+h1{
+    margin-bottom: 2rem;
+}
+
+.container div a{
+    text-decoration: none;
+    color: black;
+}
+
+.container div a:hover{
+    text-decoration: none;
+    color:rgb(61, 238, 214);
+}
+
+/* Projects description styles */
+/* #carousel .project1{
+    color: rgb(2, 92, 21);
+    background-image: linear-gradient(to bottom right, ghostwhite, rgb(46, 201, 92));   
+}
+#carousel .project2{
+    color: rgb(2, 89, 92);
+    background-image: linear-gradient(to bottom right, ghostwhite, rgb(11, 237, 245));
+}
+#carousel .project3{
+    color: rgb(92, 2, 80);
+    background-image: linear-gradient(to bottom right, ghostwhite, rgb(236, 15, 206));
+}
+#carousel .project4{
+    color: rgb(119, 121, 5);
+    background-image: linear-gradient(to bottom right, ghostwhite, rgb(243, 239, 12));
+}
+#carousel .project5{
+    color: rgb(121, 28, 5);
+    background-image: linear-gradient(to bottom right, ghostwhite, rgb(243, 85, 12));
+} */
+
+#btn-back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+#projects a{
+  text-decoration: none;
+  outline: none;
+}
+
+#projects .card-flyer {
+  border-radius: 5px;
+}
+
+#projects .card-flyer .image-box{
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+  border-radius: 5px;
+}
+
+#projects .image-box img{
+  transition: none;
+  -webkit-transition:all .9s ease; 
+  -moz-transition:all .9s ease; 
+  -o-transition:all .9s ease;
+  -ms-transition:all .9s ease; 
+  width: 100%;
+  height: 200px;
+}
+#projects .card-flyer:hover .image-box img{
+  opacity: 0.7;
+  -webkit-transform:scale(1.15);
+  -moz-transform:scale(1.15);
+  -ms-transform:scale(1.15);
+  -o-transform:scale(1.15);
+  transform:scale(1.15);
+}
+.card-flyer .text-box{
+  text-align: center;
+}
+#projects .card-flyer .text-box .text-container{
+  padding: 30px 18px;
+}
+#projects .card-flyer{
+  background: #FFFFFF;
+  margin-top: 50px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+}
+#projects .card-flyer:hover{
+  background: #fff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.50);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin-top: 50px;
+}
+
+#projects .card-flyer .text-box h6{
+  margin-top: 0px;
+  margin-bottom: 4px; 
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Roboto Black', sans-serif;
+  letter-spacing: 1px;
+  color: #00acc1;
+}
+
+footer{
+    /* background-color:#202124; */
+    background-color: #fff;
+    box-shadow: -2px 0px 6px 0 #999;
+}
+
+footer a{
+    /* color: #f1f3f4; */
+    color: #202124;
+    /* font-size: 20px; */
+    /* font-weight: bold; */
+    text-decoration: none;
+    background-color: transparent;
+}
+footer a:hover{
+    color: rgb(16, 236, 225);
+    text-decoration: none;
+}
+
+.rishabh{
+    /* color: #f1f3f4; */
+    color:#202124;
+}

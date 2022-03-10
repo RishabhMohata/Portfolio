@@ -1,0 +1,138 @@
+{% extends 'diabetes.htm' %}
+{% load static %}
+
+{% block title %}
+<title>Heart Disease project</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5 text-center" id="main">
+    <div class="conatiner-sm">
+        <img src="{% static '/images/heart1.svg' %}" style="height:250px;width:100%;">
+    </div>
+    <section class="heart">
+        <div class="container p-5-sm">
+            <br><h1 style="color:rgb(5, 154, 165)">Heart Disease Prediction</h1>
+            <h4>Diagnose whether a patient has Heart Disease or not.</h4><br>
+
+            {% if Predicted %}
+            <h1 style="color:red">Patient has diabetes</h1>
+            <h5>Prediction probability : {{ Probability }}% </h5>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+
+            {% elif Predicted == 0 %}
+            <br><h1 style="color:green">No patient is free from diabetes</h1>
+            <h5>Prediction probability : {{ Probability }}%</h5>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+
+            {% endif %}
+
+            <form action="{% url 'heart_submit' %}" method="POST">
+                {% csrf_token %}
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Age" name="age" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Sex" name="sex" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="cp" name="cp" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="trestbps" name="trestbps" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="chol" name="chol" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="fbs" name="fbs" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="restecg" name="restecg" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="thalach" name="thalach" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="exang" name="exang" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="oldpeak" name="oldpeak" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="slope" name="slope" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="ca" name="ca" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="thal" name="thal" required>
+                    </div>
+                </div>
+                <!-- <div class="row p-3 text-center">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Select Classification Model
+                            </button>
+                            <div class="dropdown-menu bg-warning">
+                                <a class="dropdown-item" href="#">Decision Tree model</a>
+                                <a class="dropdown-item" href="#">Logoistic model</a>
+                                <a class="dropdown-item" href="#">SVM model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row p-5 text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-warning">Predict</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Form Inputs description -->
+    <section class="descrition">
+        <div class="container">
+            <div class="row p-5-sm">
+                <div class="col-md-12 text-left">
+                    <br><h3 style="padding-bottom: 20px;color:black">Inputs Description</h3>
+                    <ul>
+                        <li><i style="color: tomato;">Age</i></li><br>
+                        <li><i style="color: tomato;">Sex</i></li><br>
+                        <li><i style="color: tomato;">cp</i> - Chest pain type (4 values)</li><br>
+                        <li><i style="color: tomato;">trestbps</i> - Resting blood pressure</li><br>
+                        <li><i style="color: tomato;">chol</i> - Cholestrol in mg/dl</li><br>
+                        <li><i style="color: tomato;">fbs</i> - Fasting blood sugar > 120 mg/dl</li><br>
+                        <li><i style="color: tomato;">restecg</i> - Resting electrocardiographic results (values 0,1,2)</li><br>
+                        <li><i style="color: tomato;">thalach</i> - Maximum heart rate achieved</li><br>
+                        <li><i style="color: tomato;">exang</i> - Exercise induced angina</li><br>
+                        <li><i style="color: tomato;">oldpeak</i> - ST depression induced by exercise relative to rest</li><br>
+                        <li><i style="color: tomato;">slope</i> - The slope of the peak exercise ST segment</li><br>
+                        <li><i style="color: tomato;">ca</i> - Number of major vessels (0-3)</li><br>
+                        <li><i style="color: tomato;">thal</i> - 0 = normal; 1 = fixed defect; 2 = reversable defect</li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'diabetes.htm' %}
+{% load static %}
+
+{% block title %}
+<title>Taxi-Fare Project</title>
+{% endblock %}
+
+
+<!-- Form -->
+{% block content %}
+<div class="container mt-5 mb-5 text-center" id="main">
+    <div class="conatiner-sm">
+        <img src="{% static '/images/taxi2.png' %}" style="height:300px;width:45%;">
+    </div>
+    <section class="taxi">
+        <div class="container p-5-sm">
+            <h1 style="color:rgb(0, 128, 128)">Taxi-Fare Prediction</h1>
+            <h4>Predicting the taxi-fare based on some parameters.</h4><br>
+
+            {% if Predicted %}
+            <h3>Taxi fare is approximately :<i style="color:green">{{ Predicted }}</i></h3>
+            {% endif %}
+
+            <form action="{% url 'taxi_submit' %}" method="POST">
+                {% csrf_token %}
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Pickup Lattitude" name="p_lat" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Pickup Longitude" name="p_lon" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Drop Lattitude" name="d_lat" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Drop Longitude" name="d_lon" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Passenger Count" name="p_cnt" required>
+                    </div>
+                </div>
+                <!-- <div class="row p-3 text-center">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Select Classification Model
+                            </button>
+                            <div class="dropdown-menu bg-warning">
+                                <a class="dropdown-item" href="#">Decision Tree model</a>
+                                <a class="dropdown-item" href="#">Logoistic model</a>
+                                <a class="dropdown-item" href="#">SVM model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row p-5 text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-warning">Predict</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+{% endblock %}

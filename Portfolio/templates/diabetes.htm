@@ -1,0 +1,146 @@
+{% extends 'index.htm' %}
+{% load static %}
+
+{% block title %}
+<title>Diabetes project</title>
+{% endblock %}
+
+<!-- Nav link -->
+{% block head %}
+<a href="{% url 'home' %}" class="nav-link">Home</a>
+{% endblock %}
+
+
+<!-- Form -->
+{% block content %}
+<div class="container mt-5 mb-5 text-center" id="main">
+    <div class="conatiner-sm">
+        <img src="{% static '/images/diabetes.svg' %}" style="height:250px;width:80%;">
+    </div>
+    <section class="diabetes">
+        <div class="container p-5-sm">
+            <h1 style="color:rgb(6, 179, 156)">Diabetes Prediction using ML</h1>
+            <h4>Check if a patient diagnosed to diabetes or not.</h4><br>
+
+            {% if Predicted == 1 %}
+            <br>
+            <h1 style="color:red">Patient has diabetes</h1>
+            <h5>Prediction probability : {{ Probability }}%</h5>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+
+            {% elif Predicted == 0 %}
+            <br>
+            <h1 style="color:green">No patient is free from diabetes</h1>
+            <h5>Prediction probability : {{ Probability }}%</h5>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+            {% endif %}
+
+            <form action="{% url 'diabetes_submit' %}" method="POST">
+                {% csrf_token %}
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Pregnancies" name="Pregnancies"
+                            autocomplete="off" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Glucose" name="Glucose" autocomplete="off"
+                            required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="BloodPressure" name="BloodPressure"
+                            autocomplete="off" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="SkinThickness" , name="SkinThickness"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Insulin" name="Insulin" autocomplete="off"
+                            required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="BMI" name="BMI" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="DiabetesPedigreeFunction"
+                            name="DiabetesPedigreeFunction" autocomplete="off" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Age" name="Age" autocomplete="off" required>
+                    </div>
+                </div>
+                <!-- <div class="row p-3 text-center">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Select Classification Model
+                            </button>
+                            <div class="dropdown-menu bg-warning">
+                                <a class="dropdown-item" href="#">Decision Tree model</a>
+                                <a class="dropdown-item" href="#">Logoistic model</a>
+                                <a class="dropdown-item" href="#">SVM model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row p-5 text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-warning">Predict</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Form Inputs description -->
+    <section class="descrition">
+        <div class="container">
+            <div class="row p-5-sm">
+                <div class="col-md-12 text-left">
+                    <br>
+                    <h3 style="padding-bottom: 20px;color:black">Inputs Description</h3>
+                    <ul>
+                        <li><i style="color: tomato;">Pregnancies</i> - Number of times pregnant</li><br>
+                        <li><i style="color: tomato;">Glucose</i> - Plasma glucose concentration a 2 hours in an oral
+                            glucose tolerance test</li><br>
+                        <li><i style="color: tomato;">BloodPressure</i> - Diastolic blood pressure (mm Hg)</li><br>
+                        <li><i style="color: tomato;">SkinThickness</i> - Triceps skin fold thickness (mm)</li><br>
+                        <li><i style="color: tomato;">Insulin</i> - 2-Hour serum insulin (mu U/ml)</li><br>
+                        <li><i style="color: tomato;">BMI</i> - Body mass index (weight in kg/(height in m)^2)</li><br>
+                        <li><i style="color: tomato;">DiabetesPedigreeFunction</i> - A function which scores likelihood of diabetes based on family history.</li><br>
+                        <li><i style="color: tomato;">Age</i> - Age (years)</li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+{% endblock %}
+
+<!-- Footer -->
+{% block footer %}
+<div class="col-sm-12 text-center">
+    <a href="tel:6376273161" class="p-2"
+        onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Call', eventLabel: 'Mobile Button'});">
+        <img src="{% static '/images/phone1.svg' %}" style="height:35px">
+    </a>
+    <a href="mailto:mohata.rishabh1@gmail.com" class="p-2"><img src="{% static '/images/email.svg' %}"
+            style="height:35px"></a>
+    <a href="https://www.linkedin.com/in/rishabh-mohata-ba2b29190?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bc15Q%2Bz3wTrGOqDu%2FJI6P1A%3D%3D" target="_blank" class="p-2"><img src="{% static '/images/linkedin.svg' %}"
+            style="height:30px"></a>
+    <a href="https://twitter.com/ChowdaryPhanee" class="p-2"><img src="{% static '/images/twitter.svg' %}"
+            style="height:35px"></a>
+</div>
+
+{% endblock %}

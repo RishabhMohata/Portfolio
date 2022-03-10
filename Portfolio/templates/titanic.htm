@@ -1,0 +1,93 @@
+{% extends 'diabetes.htm' %}
+{% load static %}
+
+{% block title %}
+<title>Titanic Project</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5 text-center" id="main">
+    <!-- <section class="image"> -->
+        <div class="conatiner-sm">
+            <img src="{% static '/images/titanic.svg' %}" style="height:280px;width:100%;">
+        </div>
+    <!-- </section> -->
+    <section class="titanic">
+        <div class="container p-5-sm">
+            <h1 style="color:rgb(0, 128, 117);" class="pt-5">Titanic Survival Prediction</h1>
+            <h4>Check whether a passanger survived or not.</h4><br>
+            
+            {% if Predicted %}
+            <br><h1 style="color:green">Survived</h1>
+            <h5>Prediction probability : {{ Probability }}% </h5>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+            {% elif Predicted == 0 %}
+            <br><h1 style="color:red">Not Survived</h1>
+            <h5>Prediction probability : {{ Probability }}%</h5><br>
+            <h5 style="color:tomato">Decision Tree Classifier Model</h5><br>
+
+            {% endif %}
+
+            <form action="{% url 'titanic_submit' %}" method="POST">
+                {% csrf_token %}
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="PClass" name="PClass" autocomplete="off" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Sex" name="Sex" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="SibSp" name="SibSp" autocomplete="off" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Parch" name="Parch" autocomplete="off" required>
+                    </div>
+                </div>
+                <!-- <div class="row p-3 text-center">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Select Classification Model
+                            </button>
+                            <div class="dropdown-menu bg-warning">
+                                <a class="dropdown-item" href="#" name="dtc">Decision Tree model</a>
+                                <a class="dropdown-item" href="#" name="log">Logoistic model</a>
+                                <a class="dropdown-item" href="#" name="svm">SVM model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row p-5 text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-warning">Predict</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Form Inputs description -->
+    <section class="descrition">
+        <div class="container">
+            <div class="row p-5-sm">
+                <div class="col-md-12 text-left">
+                    <br><h3 style="padding-bottom: 20px;color:black">Inputs Description</h3>
+                    <ul>
+                        <li><i style="color: tomato;">PClass</i> - Ticket Class(1-Upper Class, 2-Middle Class, 3-Lower Class)</li><br>
+                        <li><i style="color: tomato;">Sex</i>    - Male(1), Female(0)</li><br>
+                        <li><i style="color: tomato;">SibSp</i>  - Siblings/Spouses aboard the Titanic</li><br>
+                        <li><i style="color: tomato;">Parch</i>  - Parents/Children aboard the Titanic</li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% endblock %}
